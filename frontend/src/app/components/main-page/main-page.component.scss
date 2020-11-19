@@ -1,0 +1,28 @@
+.contain{
+    display: flex;
+    height: 100%;
+    max-height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 15%;
+    .card{
+        text-align: center;
+        justify-self: center;
+        max-width: 25rem;
+    }
+    .info{
+        text-align: center;
+        margin-right: 10%;
+        max-width: 250px;
+        .small-text{
+            //color
+        }
+    }
+}
+.md-form{
+    display: flex;
+    .form-item{
+        margin-right:10px ;
+    }
+}
