@@ -13,20 +13,44 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's
                 content.</p>
-            <form class="text-center" style="color: #757575;" action="#!">
+            <form class="text-center" style="color: #757575;" #userForm="ngForm" (ngSubmit)="addUser(userForm)">
                 <!-- Email -->
                 <div class="md-form">
-                    <div class="form-item">
-                        <label for="exampleInputEmail1">Nombre</label>
-                        <input type="text" class="form-control" id="#">
+                    <div class="float-left">
+                        <div class="form-item">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name">
+                        </div>
+                        <div class="form-item">
+                            <label>Email</label>
+                            <input type="email" class="form-control"
+                                aria-describedby="emailHelp" name="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email">
+                        </div>
                     </div>
-                    <div class="form-item">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div class="float-right">
+                        <div class="form-item">
+                            <label>Apellido</label>
+                            <input type="text" class="form-control"
+                                name="lastName" #lastName="ngModel" [(ngModel)]="userService.selectedUser.lastName">
+                        </div>
+                        <div class="form-item">
+                            <label>Telefono</label>
+                            <input type="text" class="form-control"
+                                name="number" #number="ngModel" [(ngModel)]="userService.selectedUser.number">
+                        </div>
+                    </div>
+                    <div class="form-item" style="text-align: -webkit-center;">
+                        <label>Localidad</label>
+                        <input style="max-width: 300px;" type="text" class="form-control" name="location" #location="ngModel" [(ngModel)]="userService.selectedUser.location">
+                    </div>
+                    <div class="form-item textarea">
+                        <label>Alguna Consulta?</label>
+                        <textarea style="height: 100px;" class="form-control" name="question" #question="ngModel" [(ngModel)]="userService.selectedUser.question" cols="30" rows="2"></textarea>
                     </div>
                 </div>
+                <button style="margin-top: 10px;" type="button" class="btn btn-primary" (click)="addUser(userForm)">Enviar</button>
+                <button style="margin-top: 10px;" type="button" class="btn btn-primary" (click)="resetForm(userForm)">Borrar Todo</button>
             </form>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
 </div>

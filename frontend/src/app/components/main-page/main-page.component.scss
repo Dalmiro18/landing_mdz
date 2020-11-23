@@ -5,11 +5,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    margin-top: 15%;
+    margin-top: 10%;
     .card{
         text-align: center;
         justify-self: center;
-        max-width: 25rem;
+        max-width: 30rem;
     }
     .info{
         text-align: center;
@@ -20,9 +20,12 @@
         }
     }
 }
-.md-form{
-    display: flex;
-    .form-item{
-        margin-right:10px ;
-    }
+.textarea{
+    display: inline-grid;
 }
+a{
+    margin-top: 10px;
+}
+
+
+
