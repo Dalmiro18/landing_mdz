@@ -11,20 +11,20 @@ export class UserService {
   user: User[];
   readonly URL_API = 'http://localhost:3000/api/users';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.selectedUser = new User();
   }
 
-  getUser(){
+  getUser() {
     return this.http.get(this.URL_API);
   }
 
-  postUser(user: User){
-    this.http.post(this.URL_API, user );
+  postUser(user: User) {
+    return this.http.post(this.URL_API, user);
   }
 
-  deleteUser(_id:string){
-    this.http.delete(this.URL_API + `/${_id}`);
+  deleteUser(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
   }
 
 }
