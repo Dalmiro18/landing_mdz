@@ -1,30 +1,29 @@
 <app-navbar></app-navbar>
 <div class="contain">
-    <div class="info">
+    <div class="info scale-in-center">
         <p class="small-text">Lorem ipsum dolor sit.</p>
         <h3>Text</h3>
         <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis numquam tempore aliquid
             labore delectus minus ab qui deserunt, voluptate at eaque vero veritatis vel nobis laudantium. Sapiente
             dolor quibusdam fuga.</p>
     </div>
-    <div class="card">
+    <div class="scale-up-bl card">
         <div class=" card-body">
             <h3 class="card-title">Card title</h3>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's
                 content.</p>
             <form class="text-center" style="color: #757575;" #userForm="ngForm" (ngSubmit)="addUser(userForm)">
-                <!-- Email -->
                 <div class="md-form">
                     <div class="float-left">
                         <div class="form-item">
-                            <label>Nombre</label>
+                            <label>Nombre <span class="required">*obligatorio</span></label>
                             <input type="text" class="form-control" name="name" #name="ngModel"
                                 [(ngModel)]="userService.selectedUser.name">
                         </div>
                         <div class="form-item">
-                            <label>Email</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp" name="email"
+                            <label>Email <span class="required">*obligatorio</span></label>
+                            <input type="email" class="form-control" required aria-describedby="emailHelp" name="email"
                                 #email="ngModel" [(ngModel)]="userService.selectedUser.email">
                         </div>
                     </div>
@@ -35,7 +34,7 @@
                                 [(ngModel)]="userService.selectedUser.lastName">
                         </div>
                         <div class="form-item">
-                            <label>Telefono</label>
+                            <label>Telefono <span class="required">*obligatorio</span></label>
                             <input  type="text" class="form-control"
                                 name="number" #number="ngModel" [(ngModel)]="userService.selectedUser.number" NumberOnly>
                         </div>
@@ -51,11 +50,19 @@
                             [(ngModel)]="userService.selectedUser.question" cols="30" rows="2"></textarea>
                     </div>
                 </div>
-                <button style="margin-top: 10px;" type="button" class="btn btn-primary"
-                    (click)="addUser(userForm)">Enviar</button>
-                <button style="margin-top: 10px;" type="button" class="btn btn-primary"
-                    (click)="resetForm(userForm)">Borrar Todo</button>
+                <div class="botton-container">
+                    <button style="margin-top: 10px;" type="button" class="btn btn-primary"
+                        (click)="addUser(userForm)">Enviar</button>
+                    <button style="margin-top: 10px;" type="button" class="btn btn-primary"
+                        (click)="resetForm(userForm)">Borrar Todo</button>
+                </div>
             </form>
+            <div class="alert scale-up-bl-alert alert-success" *ngIf="alertDataSucces" >
+                <strong>La informacion a sido enviada!</strong> <button (click)="closeAlert()" class="btn">Cerrar</button>
+            </div>
+            <div class="scale-up-bl-alert alert alert-danger" *ngIf="alertDataFail">
+                <strong>Llena todos los campos obligatorios!</strong><button (click)="closeAlert()" class="btn">Cerrar</button>
+            </div>
         </div>
     </div>
 </div>
