@@ -15,7 +15,7 @@ userCtrl.createUser = async (req, res) => {
         'status': 'User saved'
     });
 
-    const {name, lastName, number, email, location, question } = req.body;
+    const { name, lastName, number, email, location, question } = req.body;
     contentHTML = `
         <h1>Informacion del usuario</h1>
         <ul>
@@ -28,25 +28,25 @@ userCtrl.createUser = async (req, res) => {
         </ul>
     `
     const transporter = nodemailer.createTransport({
-        host:"smtp.gmail.com",
-        port:465,
+        host: "smtp.gmail.com",
+        port: 465,
         secure: true,
         auth: {
             user: 'dalmiro2h@gmail.com',
-            pass: 'nxvoyekqbjjxvwtr'
+            pass: ''
         },
-        tls:{
+        tls: {
             rejectUnauthorized: false
         }
     });
     const info = await transporter.sendMail({
-        from: 'dalmiro2h@gmail.com',
-        to: 'milit2300@gmail.com',
+        from: '',
+        to: '',
         subject: "Formulario de contacto",
         text: contentHTML
     });
     console.log('Message sent', info.messageId)
-    
+
 }
 
 
@@ -59,7 +59,7 @@ userCtrl.deleteUser = async (req, res) => {
     const id = (req.params.id);
     await User.findByIdAndRemove(id);
     res.json({
-        "status":"User deleted" 
+        "status": "User deleted"
     })
 }
 
