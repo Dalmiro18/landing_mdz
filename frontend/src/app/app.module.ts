@@ -1,26 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms'
 import {HttpClientModule } from '@angular/common/http';
-import { StrictNumberOnlyDirective } from './strict-number-only.directive'
+import { StrictNumberOnlyDirective } from './strict-number-only.directive';
+import { AdminComponent } from './components/admin/admin.component'
+
+const routes: Routes = [
+  {
+    path: '',
+    component: MainPageComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     NavbarComponent,
-    StrictNumberOnlyDirective
+    StrictNumberOnlyDirective,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

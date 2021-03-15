@@ -1,7 +1,7 @@
 const userCtrl = {};
 const User = require('../models/users');
 const nodemailer = require('nodemailer')
-
+require('dotenv').config();
 userCtrl.getUsers = async (req, res) => {
     const users = await User.find();
     res.json(users);
@@ -32,16 +32,16 @@ userCtrl.createUser = async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'dalmiro2h@gmail.com',
-            pass: ''
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_KEY
         },
         tls: {
             rejectUnauthorized: false
         }
     });
     const info = await transporter.sendMail({
-        from: '',
-        to: '',
+        from: process.env.MAIL_USER,
+        to: process.env.MAIL_USER,
         subject: "Formulario de contacto",
         text: contentHTML
     });

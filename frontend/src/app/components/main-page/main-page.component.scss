@@ -1,6 +1,7 @@
 .contain{
     display: flex;
     height: 90vh;
+    width:100%;
     max-height: 100%;
     align-items: center;
     justify-content: center;
@@ -10,6 +11,7 @@
     @media only screen and (max-width: 768px){
         display: inline-block;
         flex-direction: column-reverse;
+        height: 100%;
     }
     .card{
         h3{
@@ -19,6 +21,7 @@
             // -webkit-text-fill-color: transparent;
         }
         text-align: center;
+        margin: 15px;
         justify-self: center;
         max-width: 30rem;
         -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
@@ -40,6 +43,7 @@
         @media only screen and (max-width: 768px){
             max-width:100%;
             margin-right: 0px;
+            padding: 20px;
         }
         h3{
             color:white;
