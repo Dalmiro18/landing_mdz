@@ -6,8 +6,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    // background: rgb(15,15,106);
+    // background: linear-gradient(90deg, rgba(15,15,106,1) 0%, rgba(70,51,114,1) 100%, rgba(70,51,114,1) 100%);
+    background: rgb(70,51,114);
+    background: linear-gradient(90deg, rgba(70,51,114,1) 4%, rgba(16,16,88,1) 99%, rgba(51,26,103,1) 100%);
     @media only screen and (max-width: 768px){
         display: inline-block;
         flex-direction: column-reverse;
@@ -68,87 +70,12 @@ a{
 }
 .botton-container{
     display: inline-grid;
+    button{
+        background-color: #321a66;
+        border:none;
+    }
 }
 .alert{
     margin-top:20px ;
     margin-bottom: 0px;
 }
-
-
-
-
-
-
-
-
-
-
-
-/*ANIMATIONS*/
-.scale-up-bl {
-	-webkit-animation: scale-up-bl 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-bl 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-.scale-up-bl-alert {
-	-webkit-animation: scale-up-bl 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-bl 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-@-webkit-keyframes scale-up-bl {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
-  }
-}
-@keyframes scale-up-bl {
-  0% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
-  }
-}
-.scale-in-center {
-	-webkit-animation: scale-in-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	animation: scale-in-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-@-webkit-keyframes scale-in-center {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes scale-in-center {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
-

@@ -5,7 +5,10 @@
 export const environment = {
   production: false
 };
-
+export const admin = {
+  user: 'Dalmiro',
+  pass: '123456'
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

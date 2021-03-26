@@ -14,6 +14,7 @@ userCtrl.createUser = async (req, res) => {
     res.json({
         'status': 'User saved'
     });
+    
 
     const { name, lastName, number, email, location, question } = req.body;
     contentHTML = `
@@ -48,8 +49,6 @@ userCtrl.createUser = async (req, res) => {
     console.log('Message sent', info.messageId)
 
 }
-
-
 userCtrl.getUser = async (req, res) => {
     const user = await User.findById(req.params.id);
     res.json(user);

@@ -45,14 +45,14 @@
                             #location="ngModel" [(ngModel)]="userService.selectedUser.location">
                     </div>
                     <div class="form-item textarea">
-                        <label>Alguna Consulta?</label>
+                        <label>Que necesita?</label>
                         <textarea style="height: 100px;" class="form-control" name="question" #question="ngModel"
                             [(ngModel)]="userService.selectedUser.question" cols="30" rows="2"></textarea>
                     </div>
                 </div>
                 <div class="botton-container">
                     <button style="margin-top: 10px;" type="button" class="btn btn-primary"
-                        (click)="addUser(userForm)">Enviar</button>
+                        (click)="ValidateEmail(userService.selectedUser.email); addUser(userForm); ">Enviar</button>
                     <button style="margin-top: 10px;" type="button" class="btn btn-primary"
                         (click)="resetForm(userForm)">Borrar Todo</button>
                 </div>
@@ -62,6 +62,9 @@
             </div>
             <div class="scale-up-bl-alert alert alert-danger" *ngIf="alertDataFail">
                 <strong>Llena todos los campos obligatorios!</strong><button (click)="closeAlert()" class="btn">Cerrar</button>
+            </div>
+            <div class="scale-up-bl-alert alert alert-danger" *ngIf="alertMailFail">
+                <strong>El email ingresado no es valido!</strong><button (click)="closeAlert()" class="btn">Cerrar</button>
             </div>
         </div>
     </div>

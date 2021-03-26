@@ -1,18 +1,102 @@
-<div class="main">
-    <div class="img-container">
-        <img src="" alt="imagen de admin" class="img">
+<!--PAGINA DE LOGIN-->
+
+<div class="main" *ngIf="auth == false">
+    <div class="card">
+        <img class="admin-img" src="./assets/img/admin-logo4.png" alt="Card image admin">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Usuario</label>
+                    <input [(ngModel)]="user" type="text" class="form-control" name="user" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" [(ngModel)]="pass" class="form-control" name="pass" placeholder="Password">
+                </div>
+                <button (click)="checkCredentials()" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
-    <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Usuario</label>
-            <input [(ngModel)]="user" type="text" class="form-control" name="user" aria-describedby="emailHelp"
-                placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+
+<!--PAGINA DE CONFIGURACION-->
+
+<div *ngIf="auth == true" class="main-admin">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <img class="logo" src=".\assets\img\logo 2019-4.jpg" alt=""> -->
+        <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li *ngFor="let section of sections" class="nav-item active">
+                    <button (click)="checkRecords(section)" class="btn"><a clic
+                            class="nav-link">{{section.name}}</a></button>
+                </li>
+            </ul>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Contraseña</label>
-            <input type="password" [(ngModel)]="pass" class="form-control" name="pass" placeholder="Password">
+    </nav>
+    <div class="table-container"
+        *ngIf="sectionSelected === undefined || sectionSelected.name === 'Registros' || sectionSelected == null || backTo === true">
+        <div class="head-container">
+            <h1>Lista de Usuarios</h1>
+            <button class="btn export-btn" (click)="exportexcel()">Exportar a Excel</button>
         </div>
-        <button (click)="checkCredentials()" type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <table id="excel-table" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Localidad</th>
+                    <th scope="col">Consulta</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <th scope="row"> {{user._id}} </th>
+                    <td>{{user.name}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.number}}</td>
+                    <td>{{user.location}}</td>
+                    <td>{{user.question}}</td>
+                    <td><button (click)="deleteUser(user._id)" class="btn"><i class="fas fa-trash"></i></button>
+                        <br>
+                        <input class="checkbox" (click)="checkUser(user.email, user._id);" type="checkbox">
+                    </td>
+                </tr>
+                <div *ngIf="userDeleted" scale-up-bl class="scale-up-bl-alert alert alert-info" role="alert">
+                    Usuario eliminado!
+                </div>
+            </tbody>
+        </table>
+        <div class="editor-container">
+            <div class="editor" *ngIf="emailsChecked.length != 0">
+                <h1>Redacta la promocion!</h1>
+                <angular-editor [placeholder]="'Ingresa el email'" [(ngModel)]="htmlContent"></angular-editor>
+                <button (click)="promotionTrigger()" class="btn send-btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="sectionSelected.name === 'Imagenes'">
+        <h1>Imagenes</h1>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input (change)="onImageSelected($event)" type="file" class="form-control-file">
+            </div>
+
+        </form>
+        <button (click)="uploadImage()" class="btn">Enviar</button>
+        <img *ngFor="let img of imagesList" [src]="'http://localhost:3000/' + img.path" alt="">
+    </div>
+    
+    <!-- <div *ngIf="sectionAlert" scale-up-bl class="scale-up-bl-alert alert alert-danger" role="alert">
+        Selecciona al menos 1 usuario para la promocion
+    </div>   -->
 </div>

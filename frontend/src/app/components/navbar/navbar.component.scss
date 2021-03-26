@@ -1,8 +1,32 @@
-.logo{
-    width: 80px;
-}
 .navbar{
-    justify-content: space-between;
+    // align-items: center;
+    // justify-content: center;   
+    // background-color: #273B8F!important;
+    border: 1px solid white;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    height: 20%;
+    background: rgb(15,15,106);
+    background: linear-gradient(90deg, rgba(15,15,106,1) 0%, rgba(70,51,114,1) 100%, rgba(70,51,114,1) 100%);
+}
+.logo-container{
+            @media only screen and (max-width: 768px){
+                width: 100%;
+                text-align: center;
+        }
+    .logo{
+        width: 20%;
+        margin-left: -20%;
+        border-radius: 22px;
+        margin-top: 4%;
+        @media only screen and (max-width: 768px){
+            margin-left: 0%;
+            width: 50%;
+            margin-left: 0%;
+    
+        }
+}
 }
 @media only screen and (max-width: 768px){
     ul{
@@ -14,5 +38,154 @@
     .navbar{
         height:25vw;
          background-color: white!important;
+         @media only screen and (max-width: 768px){
+             .sub-titles-container{
+                 display: none;
+             }
+             div{
+                 .title{
+                     font-size:2rem ;
+                     display: none;
+                 }
+                 .line{
+                        top: 3vh;
+                        margin-left: 24vh;
+                     display: none;
+                 }
+                 .line1{
+                        top: 4vh;
+                        margin-left: 24vh;
+                     display: none;
+
+                 }
+                 .line2{
+                        top: 5vh;
+                        margin-left: 24vh;
+                     display: none;
+
+                 }
+                 .line3{
+                        top: 2vh;
+                        margin-left: 24vh;
+                     display: none;
+
+                 }
+             }
+         }
     }
+}
+.title{
+    color: rgba(255, 255, 255, 1);
+    font-size: 3rem;
+    margin-top: 5px;
+    margin-left: 7rem;
+    font-weight: 300;
+    font-family: 'Bebas Neue', cursive;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    align-self: baseline;
+        @media screen and (max-width:500px){
+        display: none;
+    }
+}
+.line{
+    border: 1px solid white;
+    position: absolute;
+    top: 4vh;
+    margin-left: 30vh;
+    padding-right: 76%;
+    @media screen and (max-width:1500px){
+        padding-right: 50%;
+    }
+    @media screen and (max-width:1000px){
+        padding-right: 40%;
+    }
+    @media screen and (max-width:500px){
+        display: none;
+        top: 3vh;
+        padding-right: 30%;
+    }
+}
+.line1{
+    border: 1px solid white;
+    position: absolute;
+    top: 5vh;
+    margin-left: 30vh;
+    padding-right: 76%;
+        @media screen and (max-width:1500px){
+        padding-right: 50%;
+        
+    }
+    @media screen and (max-width:1000px){
+        padding-right: 40%;
+    }
+    @media screen and (max-width:500px){
+            display: none;
+        padding-right: 30%;
+    }
+}
+.line2{
+    border: 1px solid white;
+    position: absolute;
+    top: 6vh;
+    margin-left: 30vh;
+    padding-right: 76%;
+        @media screen and (max-width:1500px){
+        padding-right: 50%;
+        
+    }
+    @media screen and (max-width:1000px){
+        padding-right: 40%;
+    }
+    @media screen and (max-width:500px){
+            display: none;
+        padding-right: 30%;
+    }
+}
+.line3{
+    border: 1px solid white;
+    position: absolute;
+    top: 3vh;
+    margin-left: 30vh;
+    padding-right: 76%;
+        @media screen and (max-width:1500px){
+        padding-right: 50%;
+        
+    }
+    @media screen and (max-width:1000px){
+        padding-right: 40%;
+    }
+    @media screen and (max-width:500px){
+            display: none;
+        padding-right: 30%;
+    }
+}
+.sub-title{
+    transform: rotate(-90deg);
+    margin-top: 3rem;
+    font-weight: 300;
+    font-family: 'Bebas Neue', cursive;
+    color: rgba(255, 255, 255);
+    position: absolute;
+    font-size: 26px;
+    margin-left: 16rem;
+}
+.sub-titles-container{
+    position: absolute;
+    margin-top: 40px;
+}
+
+.sub-titles{
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.7rem;
+    font-weight: 200;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: 34vh;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.sub-titles-non-transparent{
+    color: rgba(255, 255, 255);
+    font-size: 1.7rem;
+    font-weight: 200;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: 34vh;
 }

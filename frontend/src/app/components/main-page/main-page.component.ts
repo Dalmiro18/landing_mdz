@@ -16,6 +16,7 @@ export class MainPageComponent implements OnInit {
   navigationKeys: any;
   alertDataSucces: boolean = false;
   alertDataFail: boolean = false;
+  alertMailFail: boolean = false;
 
   ngOnInit() {
   }
@@ -29,14 +30,15 @@ export class MainPageComponent implements OnInit {
   }
   addUser(form: NgForm) {
     console.log(form.value)
-    if (form.value.email.length != 0 && form.value.number.length != 0 && form.value.number != 0 && form.value.name.length != 0){
-      this.userService.postUser(form.value).subscribe(res => {
-        this.resetForm(form)
-        this.alertDataSucces = true;
-      })
+    if (form.value.email.length != 0 && form.value.number.length != 0 && form.value.number != 0 && form.value.name.length != 0 && this.alertMailFail == false){
+        this.userService.postUser(form.value).subscribe(res => {
+          this.resetForm(form)
+          this.alertDataSucces = true;
+        })
 
-    }else{
-      this.alertDataFail = true
+    }else if(this.alertMailFail == false){
+      this.closeAlert();
+      this.alertDataFail = true;
     }
   }
   closeAlert(){
@@ -44,6 +46,18 @@ export class MainPageComponent implements OnInit {
       this.alertDataSucces = false;
     }else if(this.alertDataFail){
       this.alertDataFail = false;
+    }
+    else if(this.alertMailFail){
+      this.alertMailFail = false;
+    }
+  }
+  ValidateEmail(inputText) {
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (inputText.match(mailformat)) {
+       this.alertMailFail = false ;
+    }
+    else {
+      this.alertMailFail = true;
     }
   }
 }

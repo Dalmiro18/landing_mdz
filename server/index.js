@@ -12,6 +12,7 @@ require('dotenv').config();
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.json());
+app.use('./public/uploads', express.static(__dirname + '/uploads'))
 app.use(cors({
     origin:'http://localhost:4200'
 }));
@@ -21,6 +22,8 @@ app.use(cors({
 
 // Routes
 app.use('/api/users',require('./routes/users.routes'));
+app.use('/api/promotions',require('./routes/promotions.routes'));
+app.use('/api/images', require('./routes/image.routes'));
 
 
 // Start the server

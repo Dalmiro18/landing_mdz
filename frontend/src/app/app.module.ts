@@ -8,7 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms'
 import {HttpClientModule } from '@angular/common/http';
 import { StrictNumberOnlyDirective } from './strict-number-only.directive';
-import { AdminComponent } from './components/admin/admin.component'
+import { AdminComponent } from './components/admin/admin.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    AngularEditorModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
